@@ -1,6 +1,7 @@
 #!/bin/bash
+# Script to make test files
 
-TARGET_DIR="testfiles_bkp"
+TARGET_DIR="testfiles"
 
 extensions=(
     "txt" "md" "log"             # Documents

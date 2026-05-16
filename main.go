@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"slices"
 	"strings"
 
 	"gopkg.in/yaml.v3"
@@ -121,10 +122,28 @@ func cancelSorting(paths map[string]string) error {
 		}
 		fmt.Printf("%s ==> %s\n", new, old)
 		counter++
+
+		pathToDir, _ := filepath.Split(new)
+		dir := filepath.Base(pathToDir)
+		var mentioned []string
+		files, _ := os.ReadDir(pathToDir)
+		if len(files) > 0 {
+			if !slices.Contains(mentioned, dir) {
+				fmt.Printf("%s is not empty (%d files), skipping...\n", pathToDir, len(files))
+				continue
+			}
+			mentioned = append(mentioned, dir)
+			continue
+		}
+		os.Remove(pathToDir)
+		fmt.Printf("Removed %s\n", pathToDir)
 	}
 	if counter == 0 {
 		fmt.Println("Nothing to revert!")
+		return nil
 	}
+
+	fmt.Printf("--- FINISH ---\nSuccessfully rolled back %d files!\n", counter)
 	return nil
 }
 
