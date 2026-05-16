@@ -1,0 +1,7 @@
+.vscode
+*.yaml
+*.exe
+*.bkp
+stfb
+testfiles
+testfiles_bkp

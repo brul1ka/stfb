@@ -1,0 +1,43 @@
+rules:
+    Archives:
+        - .zip
+        - .tar.gz
+        - .rar
+        - .7z
+    Code:
+        - .sh
+        - .py
+        - .cpp
+        - .go
+    Config:
+        - .conf
+        - .ini
+        - .yaml
+        - .xml
+    Documents:
+        - .txt
+        - .md
+        - .log
+    Media:
+        - .mp3
+        - .wav
+        - .mp4
+        - .mkv
+    Office:
+        - .pdf
+        - .docx
+        - .xlsx
+        - .pptx
+    Pictures:
+        - .jpg
+        - .png
+        - .gif
+        - .svg
+    Web:
+        - .html
+        - .css
+        - .js
+        - .json
+undo:
+    last_sorting_path: ""
+    sorted_to: {}
